@@ -1,0 +1,5 @@
+qrcodeconfig:
+  version: 1
+  error_correction: qrcode.constants.ERROR_CORRECT_L
+  box_size: 120
+  border: 2

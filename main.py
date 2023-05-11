@@ -25,15 +25,6 @@ class ProductQr:
         return f"{self.SCHEME}://{self.NETLOC}.{self.product}.com"
 
 
-    def get_products(self, filename):
-        list_urls = []
-        with open(filename, "r") as f:
-            urls = json.load(f)
-        for url in urls:
-            list_urls.append(f"{self.SCHEME}://{self.NETLOC}.{url}.com")
-        return list_urls
-
-
     def generate_qr_image(self):
         product_to_handle = self._get_product()
         qr = QRCode(

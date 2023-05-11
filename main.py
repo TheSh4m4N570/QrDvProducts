@@ -46,7 +46,7 @@ class ProductQr:
         qr.make(fit=True)
         img = qr.make_image(fill_color=config.DEFAULT_FILL_COLOR, back_color=config.DEFAULT_BG_COLOR)
         return img
-    
+
 
     def save_image_to(self):
         img = self.generate_qr_image()
@@ -56,7 +56,10 @@ class ProductQr:
 
 
 if __name__ == "__main__":
-    c = ProductQr("playweez-gn", "GN")
-    c.generate_qr_image()
-    c.save_image_to()
+    with open ("urls.json", "r") as f:
+        urls = json.load(f)
+    for url in urls:
+        c = ProductQr(url, "GN")
+        c.generate_qr_image()
+        c.save_image_to()
 
